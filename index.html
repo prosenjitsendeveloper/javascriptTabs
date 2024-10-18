@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  *{
+    box-sizing: border-box;
+  }
+
+  body{
+    background-color: #94979c;
+  }
+  .tabs{
+    width: 500px;
+   
+    overflow: hidden;
+  }
+  .tabs button{
+    background-color: #9ab1d6;
+    border:none;
+    outline:none;
+    padding:10px 15px;
+    font-weight: bold;
+    color:#fff;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  .tabs button:hover{
+    background-color: #458af7;
+  }
+
+  .tablinks.active{
+    background-color: #fff;
+    color:black;
+  }
+  .contents{
+    width: 550px;
+    background-color: #fff;
+    padding:12px;
+    line-height: 14px;
+    display: none;
+  }
+</style>
+<body>
+
+  <div class="tabs">
+    <button class="tablinks" data-tab = "tab1">Tab 1</button>
+    <button class="tablinks" data-tab = "tab2">Tab 2</button>
+    <button class="tablinks" data-tab = "tab3">Tab 3</button>
+  </div>
+
+  <div id="tab1" class="contents">
+    <h2>TAB 1</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas beatae eaque, quisquam corrupti eos praesentium impedit sed totam amet ullam facilis cumque vitae assumenda porro cupiditate fuga voluptate laboriosam. Maxime!</p>
+  </div>
+
+  <div id="tab2" class="contents">
+    <h2>TAB 2</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas beatae eaque, quisquam corrupti eos praesentium impedit sed totam amet ullam facilis cumque vitae assumenda porro cupiditate fuga voluptate laboriosam. Maxime!</p>
+  </div>
+
+  <div id="tab3" class="contents">
+    <h2>TAB 3</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas beatae eaque, quisquam corrupti eos praesentium impedit sed totam amet ullam facilis cumque vitae assumenda porro cupiditate fuga voluptate laboriosam. Maxime!</p>
+  </div>
+
+
+
+  <script>
+    var allbuttons = document.querySelectorAll(".tablinks");
+    for(var i =0; i < allbuttons.length; i++){
+      allbuttons[i].addEventListener("click",function(){
+        var TabName = this.dataset.tab;
+        var Tabcontents = document.getElementById(TabName);
+
+        var allcontent = document.querySelectorAll(".contents");
+        var allbutton = document.querySelectorAll(".tablinks");
+
+        for( var j=0; j < allcontent.length; j++){
+          allcontent[j].style.display = "none";
+        }
+
+        for(var k=0; k < allbutton.length;k++){
+          allbutton[k].classList.remove('active');
+        }
+
+        Tabcontents.style.display = "block";
+        this.classList.add('active');
+      })
+    }
+  </script>
+  
+</body>
+</html>
